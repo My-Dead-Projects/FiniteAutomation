@@ -23,20 +23,20 @@ namespace std
     };
 }
 
-class FSM
+class DFA
 {
 private:
     transition_table_t transition_table;
     final_state_table_t final_state_table;
 
-    explicit FSM(transition_table_t t_table, final_state_table_t f_table) :
+    explicit DFA(transition_table_t t_table, final_state_table_t f_table) :
             transition_table(move(t_table)), final_state_table(move(f_table))
     {}
 
 public:
     class builder;
 
-    FSM() = delete;
+    DFA() = delete;
 
     bool accepts(const std::string &s) const
     {
@@ -70,7 +70,7 @@ public:
     }
 };
 
-class FSM::builder
+class DFA::builder
 {
     transition_table_t t_table;
     final_state_table_t f_table;
@@ -98,8 +98,8 @@ public:
         return *this;
     }
 
-    FSM build() const
+    DFA build() const
     {
-        return FSM(t_table, f_table);
+        return DFA(t_table, f_table);
     }
 };

@@ -1,1 +1,1 @@
-add_library(FSM library.cpp library.h)
+add_library(DFA library.cpp library.h)

@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    FSM fsm = FSM::builder()
+    DFA fsm = DFA::builder()
             .transition_range(0, 'b', 'z', 0)
             .transition(0, 'a', 1)
             .transition(1, 'b', 2)
